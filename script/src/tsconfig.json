@@ -1,0 +1,10 @@
+{
+   "compilerOptions": {
+      "allowJs": true,
+      "outDir": "../build",
+      "noImplicitAny": true,
+      "target": "ESNext",
+      "module": "ESNext",
+      "lib": ["ESNext", "DOM"]
+   }
+}

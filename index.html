@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <link
+         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+         rel="stylesheet"
+         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+         crossorigin="anonymous"
+      />
+      <script
+         src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+         crossorigin="anonymous"
+      ></script>
+      <link rel="stylesheet" href="./styles/style.css" />
+      <script type="module" src="./script/build/app.js"></script>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Trivia</title>
+   </head>
+   <body>
+      <div class="container center-all" style="height: 100vh">
+         <!-- Menu -->
+         <div
+            id="main-menu"
+            class="text-center border border-success border-2 rounded-4 p-5"
+         >
+            <!-- Number of questions -->
+            <div class="mb-3">
+               <h5>Number of questions</h5>
+               <select id="number-of-questions" class="form-select col-10">
+                  <option value="10">10</option>
+                  <option value="15">15</option>
+                  <option value="20">20</option>
+               </select>
+            </div>
+
+            <!-- Category -->
+            <div class="mb-3">
+               <h5>Category</h5>
+               <select id="category" class="form-select col-10">
+                  <option value="">General Knowledge</option>
+                  <option value="">Option</option>
+                  <option value="">Option</option>
+               </select>
+            </div>
+
+            <!-- Difficulty Level -->
+            <div class="mb-4">
+               <h5>Difficulty</h5>
+               <select id="difficulty-level" class="form-select col-10">
+                  <option value="easy">Easy</option>
+                  <option value="medium">Medium</option>
+                  <option value="hard">Hard</option>
+               </select>
+            </div>
+            <button id="start-btn" class="btn btn-success">Go!</button>
+         </div>
+
+         <!-- Game area -->
+         <div id="game-area" class="col-9 text-center d-none">
+            <!-- Question -->
+            <div
+               class="position-relative border border border-info border-3 rounded-3 mb-3 p-4"
+            >
+               <h2
+                  id="question-number"
+                  class="position-absolute top-0 start-50 translate-middle bg-white text-info px-3 pb-2"
+               >
+                  Question 1
+               </h2>
+               <p id="question" class="p-4 mb-0">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Accusantium aspernatur sapiente esse, odio eos repellendus
+                  optio quia, labore assumenda, hic soluta rem. Optio placeat
+                  enim repellendus exercitationem tenetur illo maxime.
+               </p>
+            </div>
+            <!-- Answers -->
+            <div class="answers-area row row-cols-2 g-3">
+               <div class="col">
+                  <div
+                     class="answer border border border-info border-3 rounded-3 p-3"
+                  >
+                     Answer
+                  </div>
+               </div>
+               <div class="col">
+                  <div
+                     class="answer border border border-info border-3 rounded-3 p-3"
+                  >
+                     Answer
+                  </div>
+               </div>
+               <div class="col">
+                  <div
+                     class="answer border border border-info border-3 rounded-3 p-3"
+                  >
+                     Answer
+                  </div>
+               </div>
+               <div class="col">
+                  <div
+                     class="answer border border border-info border-3 rounded-3 p-3"
+                  >
+                     Answer
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <!-- end message -->
+         <div class="col-9 text-center d-none">
+            <div>
+               <h1 class="text-success">Well Done!</h1>
+               <h3 class="text-info mb-3">You've got 7/10 right</h3>
+               <h5 class="">review the answers:</h5>
+
+               <!-- correct answers -->
+               <div class="accordion px-5" id="correct-answers">
+                  <div class="accordion-item">
+                     <h2 class="accordion-header">
+                        <button
+                           class="accordion-button"
+                           type="button"
+                           data-bs-toggle="collapse"
+                           data-bs-target="#collapseOne"
+                           aria-expanded="true"
+                           aria-controls="collapseOne"
+                        >
+                           Question 1
+                        </button>
+                     </h2>
+                     <div
+                        id="collapseOne"
+                        class="accordion-collapse collapse show"
+                        data-bs-parent="#accordionExample"
+                     >
+                        <div class="accordion-body">
+                           <div class="position-relative mb-3 p-2">
+                              <p class="p-4 mb-0">
+                                 Lorem ipsum dolor sit amet consectetur
+                                 adipisicing elit. Accusantium aspernatur
+                                 sapiente esse, odio eos repellendus optio quia,
+                                 labore assumenda, hic soluta rem. Optio placeat
+                                 enim repellendus exercitationem tenetur illo
+                                 maxime.
+                              </p>
+                           </div>
+                           <!-- Answers -->
+                           <div class="row row-cols-2 g-3">
+                              <div class="col">
+                                 <div
+                                    class="answer border border border-success border-3 rounded-3 p-"
+                                 >
+                                    Answer
+                                 </div>
+                              </div>
+                              <div class="col">
+                                 <div
+                                    class="answer border border border-danger border-3 rounded-3 p-"
+                                 >
+                                    Answer
+                                 </div>
+                              </div>
+                              <div class="col">
+                                 <div
+                                    class="answer border border border-danger border-3 rounded-3 p-"
+                                 >
+                                    Answer
+                                 </div>
+                              </div>
+                              <div class="col">
+                                 <div
+                                    class="answer border border border-danger border-3 rounded-3 p-"
+                                 >
+                                    Answer
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="accordion-item">
+                     <h2 class="accordion-header">
+                        <button
+                           class="accordion-button collapsed"
+                           type="button"
+                           data-bs-toggle="collapse"
+                           data-bs-target="#collapseTwo"
+                           aria-expanded="false"
+                           aria-controls="collapseTwo"
+                        >
+                           Accordion Item #2
+                        </button>
+                     </h2>
+                     <div
+                        id="collapseTwo"
+                        class="accordion-collapse collapse"
+                        data-bs-parent="#accordionExample"
+                     >
+                        <div class="accordion-body">
+                           <strong
+                              >This is the second item's accordion body.</strong
+                           >
+                           It is hidden by default, until the collapse plugin
+                           adds the appropriate classes that we use to style
+                           each element. These classes control the overall
+                           appearance, as well as the showing and hiding via CSS
+                           transitions. You can modify any of this with custom
+                           CSS or overriding our default variables. It's also
+                           worth noting that just about any HTML can go within
+                           the <code>.accordion-body</code>, though the
+                           transition does limit overflow.
+                        </div>
+                     </div>
+                  </div>
+                  <div class="accordion-item">
+                     <h2 class="accordion-header">
+                        <button
+                           class="accordion-button collapsed"
+                           type="button"
+                           data-bs-toggle="collapse"
+                           data-bs-target="#collapseThree"
+                           aria-expanded="false"
+                           aria-controls="collapseThree"
+                        >
+                           Accordion Item #3
+                        </button>
+                     </h2>
+                     <div
+                        id="collapseThree"
+                        class="accordion-collapse collapse"
+                        data-bs-parent="#accordionExample"
+                     >
+                        <div class="accordion-body">
+                           <strong
+                              >This is the third item's accordion body.</strong
+                           >
+                           It is hidden by default, until the collapse plugin
+                           adds the appropriate classes that we use to style
+                           each element. These classes control the overall
+                           appearance, as well as the showing and hiding via CSS
+                           transitions. You can modify any of this with custom
+                           CSS or overriding our default variables. It's also
+                           worth noting that just about any HTML can go within
+                           the <code>.accordion-body</code>, though the
+                           transition does limit overflow.
+                        </div>
+                     </div>
+                  </div>
+
+                  <div class="accordion-item">
+                     <h2 class="accordion-header">
+                        <button
+                           class="accordion-button collapsed"
+                           type="button"
+                           data-bs-toggle="collapse"
+                           data-bs-target="#collapseFour"
+                           aria-expanded="false"
+                           aria-controls="collapseFour"
+                        >
+                           Accordion Item #4
+                        </button>
+                     </h2>
+                     <div
+                        id="collapseFour"
+                        class="accordion-collapse collapse"
+                        data-bs-parent="#accordionExample"
+                     >
+                        <div class="accordion-body">
+                           <strong
+                              >This is the third item's accordion body.</strong
+                           >
+                           It is hidden by default, until the collapse plugin
+                           adds the appropriate classes that we use to style
+                           each element. These classes control the overall
+                           appearance, as well as the showing and hiding via CSS
+                           transitions. You can modify any of this with custom
+                           CSS or overriding our default variables. It's also
+                           worth noting that just about any HTML can go within
+                           the <code>.accordion-body</code>, though the
+                           transition does limit overflow.
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>
