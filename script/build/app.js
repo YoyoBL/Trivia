@@ -12,6 +12,10 @@ const $answers = Array.from($answersNode);
 // console.log($answers);
 let questions = [];
 let currentQuestionIndex = 0;
+const answersResults = {
+    correct: [],
+    incorrect: [],
+};
 // Listeners_________________________________________________________________
 // start btn
 $startBtn.addEventListener("click", () => {
@@ -27,11 +31,13 @@ function listenToAnswers() {
             if ($answer.innerHTML === correctAnswer) {
                 colorAnswers("info", "danger");
                 $answer.classList.replace("border-danger", "border-success");
+                answersResults.correct.push(currentQuestionIndex);
             }
             else {
                 colorAnswers("info", "danger");
                 const correctAnswerDivElement = $answers.find((e) => e.innerHTML === correctAnswer);
                 correctAnswerDivElement.classList.replace("border-danger", "border-success");
+                answersResults.incorrect.push(currentQuestionIndex);
             }
         }
         setTimeout(() => {

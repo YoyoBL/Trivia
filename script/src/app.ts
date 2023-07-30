@@ -18,7 +18,16 @@ const $answers = Array.from($answersNode);
 // console.log($answers);
 
 let questions: Question[] = [];
+
 let currentQuestionIndex = 0;
+
+const answersResults: {
+   correct: number[];
+   incorrect: number[];
+} = {
+   correct: [],
+   incorrect: [],
+};
 
 // Listeners_________________________________________________________________
 
@@ -38,6 +47,7 @@ function listenToAnswers() {
             colorAnswers("info", "danger");
 
             $answer.classList.replace("border-danger", "border-success");
+            answersResults.correct.push(currentQuestionIndex);
          } else {
             colorAnswers("info", "danger");
 
@@ -48,6 +58,7 @@ function listenToAnswers() {
                "border-danger",
                "border-success"
             );
+            answersResults.incorrect.push(currentQuestionIndex);
          }
       }
       setTimeout(() => {
