@@ -4,6 +4,7 @@ export class Question {
    question: string;
    correct_answer: string;
    incorrect_answers: string[];
+   combinedAnswers: string[];
 
    constructor(
       category: string,
@@ -19,8 +20,7 @@ export class Question {
       this.incorrect_answers = incorrect_answers;
    }
 
-   getAnswers() {
-      const answers = [...this.incorrect_answers, this.correct_answer];
-      return answers;
+   combineAnswers() {
+      return [...this.incorrect_answers, this.correct_answer];
    }
 }
