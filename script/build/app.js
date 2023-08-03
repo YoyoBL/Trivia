@@ -1,6 +1,4 @@
 import { Trivia } from "./classes/trivia.class.js";
-let hello = 3;
-hello++;
 const $startBtn = document.getElementById("start-btn");
 const $numberOfQuestions = document.getElementById("number-of-questions");
 const $category = document.getElementById("category");
@@ -25,7 +23,7 @@ const answersResults = {
 };
 // Listeners_________________________________________________________________
 // start btn
-$startBtn.addEventListener("click", () => startGame());
+$startBtn.addEventListener("click", startGame);
 // answers listeners
 function listenToAnswers() {
     window.addEventListener("click", (e) => {
@@ -36,7 +34,7 @@ function listenToAnswers() {
             if ($answer.innerHTML === correctAnswer) {
                 colorAnswers("info", "danger");
                 $answer.classList.replace("border-danger", "border-success");
-                trivia.answersResults.correct.push(currentQuestionIndex);
+                trivia.registerAsCorrect(currentQuestionIndex);
                 //incorrect-answer
             }
             else {
@@ -46,7 +44,7 @@ function listenToAnswers() {
                 decode.innerHTML = correctAnswer;
                 const correctAnswerDivElement = $answers.find((e) => e.innerHTML === decode.innerHTML);
                 correctAnswerDivElement.classList.replace("border-danger", "border-success");
-                trivia.answersResults.incorrect.push(currentQuestionIndex);
+                trivia.registerAsIncorrect(currentQuestionIndex);
             }
             setTimeout(() => {
                 if (currentQuestionIndex !== trivia.numOfQuestions - 1) {
@@ -80,6 +78,7 @@ async function fillCategorySelector() {
 }
 fillCategorySelector();
 async function startGame() {
+    debugger;
     const numberOfQuestions = $numberOfQuestions.value;
     const category = $category.value;
     const difficultyLevel = $difficultyLevel.value;
@@ -92,7 +91,7 @@ async function startGame() {
         $gameArea.classList.remove("d-none");
     }
     catch (error) {
-        $mainMenu.innerHTML += `<div class="text-danger">${error}</div>`;
+        $mainMenu.insertAdjacentHTML("beforeend", `<div class="text-danger">${error}</div>`);
     }
 }
 function renderQuestion() {
